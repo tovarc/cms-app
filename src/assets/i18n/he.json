@@ -1,0 +1,22 @@
+{
+  "log_in": "התחבר",
+  "dont_have_an_account_yet": "עדיין אין לך חשבון?",
+  "sign_up": "הירשם",
+  "continue_with_google": "המשך עם גוגל",
+  "email": "דואר אלקטרוני",
+  "insert_your_email": "הכנס את הדואר האלקטרוני שלך",
+  "password": "סיסמה",
+  "insert_your_password": "הכנס את הסיסמה שלך",
+  "forgot_password": "שכחת סיסמה?",
+  "by_logging_in_you_agree_to_terms_of_use": "על ידי התחברות אתה מסכים לתנאי השימוש שלנו",
+  "terms_of_use": "תנאי שימוש",
+  "already_got_an_account": "כבר יש לך חשבון?",
+  "sign_up_with_google": "הירשם באמצעות גוגל",
+  "retype_password": "הכנס שוב את הסיסמה",
+  "continue": "המשך",
+  "by_signing_up_you_agree_to_terms_of_use": "על ידי ההרשמה אתה מסכים לתנאי השימוש שלנו",
+  "back": "חזור",
+  "reset_password": "איפוס סיסמה",
+  "enter_your_email_to_get_link_reset_password": "הכנס את הדואר האלקטרוני שלך כדי לקבל קישור לאיפוס הסיסמה",
+  "send": "שלח"
+}

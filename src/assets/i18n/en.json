@@ -1,0 +1,22 @@
+{
+  "log_in": "Log In",
+  "dont_have_an_account_yet": "Don't have an account yet?",
+  "sign_up": "Sign Up",
+  "continue_with_google": "Continue with Google",
+  "email": "Email",
+  "insert_your_email": "Insert your Email",
+  "password": "Password",
+  "insert_your_password": "Insert your Password",
+  "forgot_password": "Forgot password?",
+  "by_logging_in_you_agree_to_terms_of_use": "By logging in you agree to our",
+  "terms_of_use": "Terms of Use",
+  "already_got_an_account": "Already got an account?",
+  "sign_up_with_google": "Sign Up with Google",
+  "retype_password": "Retype password",
+  "continue": "Continue",
+  "by_signing_up_you_agree_to_terms_of_use": "By signing up you agree to our",
+  "back": "Back",
+  "reset_password": "Reset Password",
+  "enter_your_email_to_get_link_reset_password": "Enter your email to get a link to reset your password",
+  "send": "Send"
+}
