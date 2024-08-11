@@ -18,5 +18,26 @@
   "back": "Back",
   "reset_password": "Reset Password",
   "enter_your_email_to_get_link_reset_password": "Enter your email to get a link to reset your password",
-  "send": "Send"
+  "send": "Send",
+
+  "home": "Home",
+  "clients": "Clients",
+  "voyages": "Voyages",
+  "activities": "Activities",
+  "settings": "Settings",
+
+  "cms": "CMS",
+  "mark_all_as_read": "Mark all as Read",
+  "latest_updates": "Latest updates:",
+  "welcome_back": "Welcome Back!",
+
+  "date": "16 May 2024, 11:15",
+  "completed": "Completed",
+
+  "preview": "Preview",
+  "download_results": "Download Results",
+  "view_client": "View Client",
+  "mark_as_read": "Mark as Read",
+  "mark_as_unread": "Mark as Unread",
+  "delete": "Delete"
 }

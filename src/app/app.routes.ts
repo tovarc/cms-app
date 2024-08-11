@@ -28,4 +28,25 @@ export const routes: Routes = [
         (m) => m.TermsOfUseComponent,
       ),
   },
+
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./dashboard/dashboard.component').then(
+        (m) => m.DashboardComponent,
+      ),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./home/home.component').then((m) => m.HomeComponent),
+      },
+
+      {
+        path: 'clients',
+        loadComponent: () =>
+          import('./clients/clients.component').then((m) => m.ClientsComponent),
+      },
+    ],
+  },
 ];

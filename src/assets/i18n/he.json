@@ -18,5 +18,26 @@
   "back": "חזור",
   "reset_password": "איפוס סיסמה",
   "enter_your_email_to_get_link_reset_password": "הכנס את הדואר האלקטרוני שלך כדי לקבל קישור לאיפוס הסיסמה",
-  "send": "שלח"
+  "send": "שלח",
+
+  "home": "בית",
+  "clients": "לקוחות",
+  "voyages": "מסעות",
+  "activities": "פעילויות",
+  "settings": "הגדרות",
+
+  "cms": "ס\"מ",
+  "mark_all_as_read": "סמן הכל כנקרא",
+  "latest_updates": "עדכונים אחרונים:",
+  "welcome_back": "ברוך שובך!",
+
+  "date": "18 במאי 2024, 2:22",
+  "completed": "הושלם",
+
+  "preview": "תצוגה מקדימה",
+  "download_results": "הורד תוצאות",
+  "view_client": "צפה בלקוח",
+  "mark_as_read": "סמן כנקרא",
+  "mark_as_unread": "סמן כלא נקרא",
+  "delete": "מחק"
 }
