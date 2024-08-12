@@ -1,11 +1,9 @@
 <section (click)="hideUpdateOptions(); $event.stopPropagation()">
-  <h1 class="mb-6 text-xl">{{ "welcome_back" | translate }}</h1>
-  <div class="flex items-center justify-between mb-6">
-    <p>{{ "latest_updates" | translate }}</p>
-
+  <h1 class="mb-6 text-2xl">{{ "welcome_back" | translate }}</h1>
+  <div class="flex items-center mb-6">
     <button
       type="button"
-      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      class="text-white ml-auto rtl:mr-auto rtl:ml-0 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -23,10 +21,19 @@
     </button>
   </div>
 
-  <div class="shadow-md sm:rounded-lg overflow-x-auto">
+  <div class="shadow-md sm:rounded-lg overflow-x-scroll sm:overflow-x-visible">
     <table
       class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
     >
+      <thead
+        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+      >
+        <tr>
+          <th colspan="5" class="px-6 py-3">
+            {{ "latest_updates" | translate }}
+          </th>
+        </tr>
+      </thead>
       <tbody>
         @for (update of updates; track update) {
           <tr
@@ -37,22 +44,15 @@
             </td>
             <td class="px-6 py-4 w-72">
               <div class="flex items-center">
-                <span
-                  class="mr-4 rtl:ml-4 rounded-full border-2 border-gray-300"
+                <div
+                  class="size-10 rounded-full overflow-hidden mr-6 rtl:ml-6 rtl:mr-0"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    class="size-10"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </span>
+                  <img
+                    src="https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg"
+                    alt=""
+                  />
+                </div>
+
                 <span class="font-bold">Shmil Avadon</span>
               </div>
             </td>

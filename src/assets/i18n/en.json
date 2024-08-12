@@ -28,7 +28,7 @@
 
   "cms": "CMS",
   "mark_all_as_read": "Mark all as Read",
-  "latest_updates": "Latest updates:",
+  "latest_updates": "Latest updates",
   "welcome_back": "Welcome Back!",
 
   "date": "16 May 2024, 11:15",
@@ -39,5 +39,15 @@
   "view_client": "View Client",
   "mark_as_read": "Mark as Read",
   "mark_as_unread": "Mark as Unread",
-  "delete": "Delete"
+  "delete": "Delete",
+
+  "my_clients": "My Clients",
+  "add_client": "Add Client",
+  "name": "Name",
+  "last_action": "Last Action",
+  "activities_done": "Activities Done",
+  "added": "Added",
+  "assign_voyage": "Assign Voyage",
+  "edit_profile": "Edit Profile",
+  "duplicate": "Duplicate"
 }

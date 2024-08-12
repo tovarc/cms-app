@@ -39,5 +39,15 @@
   "view_client": "צפה בלקוח",
   "mark_as_read": "סמן כנקרא",
   "mark_as_unread": "סמן כלא נקרא",
-  "delete": "מחק"
+  "delete": "מחק",
+
+  "my_clients": "הלקוחות שלי",
+  "add_client": "הוסף לקוח",
+  "name": "שם",
+  "last_action": "פעולה אחרונה",
+  "activities_done": "פעילויות שבוצעו",
+  "added": "נוסף",
+  "assign_voyage": "הקצה מסע",
+  "edit_profile": "ערוך פרופיל",
+  "duplicate": "שכפל"
 }
