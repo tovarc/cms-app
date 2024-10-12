@@ -1,79 +1,149 @@
 <section class="flex items-center justify-center h-screen">
-  <div class="border-2 rounded-lg px-8 py-10 w-[468px]">
-    <h1 class="text-3xl mb-6">{{ "sign_up" | translate }}</h1>
-    <p class="mb-8">
-      {{ "already_got_an_account" | translate }}
-      <a routerLink="/login" class="text-blue-500">{{
-        "log_in" | translate
-      }}</a>
-    </p>
+  <div
+    class="bg-gradient border-2 rounded-[40px] shadow-lg px-8 py-14 w-[795px] text-center"
+  >
+    <div class="w-[527px] mx-auto">
+      <h1 class="text-[64px] font-medium text-[#3A6A76]">
+        {{ "sign_up" | translate }}
+      </h1>
+      <p class="mb-14 text-[#3A6A76]">
+        {{ "already_got_an_account" | translate }}
+        <a routerLink="/login" class="underline">{{ "log_in" | translate }}</a>
+      </p>
 
-    <button
-      type="button"
-      class="py-2 w-full mb-10 text-center px-3 gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-    >
-      {{ "sign_up_with_google" | translate }}
-    </button>
+      <button
+        type="button"
+        class="w-full flex items-center justify-center py-5 px-3 gap-4 text-[22px] rounded-full border border-transparent bg-[#3A6A76] text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+      >
+        <img src="assets/google-logo.svg" alt="" />
+        {{ "sign_up_with_google" | translate }}
+      </button>
 
-    <form class="space-y-8">
-      <div>
-        <label for="input-label" class="block text-sm font-medium mb-2">
-          {{ "email" | translate }}
-        </label>
-        <input
-          formControlName="email"
-          type="email"
-          id="input-label"
-          class="py-3 px-4 block w-full border-2 border-gray-700 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-          placeholder="{{ 'insert_your_email' | translate }}"
-        />
-      </div>
-
-      <div>
-        <label
-          for="input-label"
-          class="block text-sm font-medium mb-2 dark:text-white"
+      <!-- <span class="text-[24px] text-gray-500 my-10 inline-block">OR</span> -->
+      <div class="flex items-center my-10">
+        <div class="flex-grow h-px bg-gray-300"></div>
+        <span class="flex-shrink mx-6 text-gray-500 text-[22px] font-medium"
+          >OR</span
         >
-          {{ "password" | translate }}
-        </label>
-        <input
-          formControlName="password"
-          type="password"
-          id="input-label"
-          class="py-3 px-4 border-2 border-gray-700 block w-full rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-          placeholder="{{ 'insert_your_password' | translate }}"
-        />
+        <div class="flex-grow h-px bg-gray-300"></div>
       </div>
 
-      <div>
-        <label
-          for="input-label"
-          class="block text-sm font-medium mb-2 dark:text-white"
+      <form class="space-y-8 mb-12">
+        <div class="text-left">
+          <label for="input-label" class="block text-md text-gray-600 mb-2">
+            {{ "email" | translate }}
+          </label>
+          <input
+            formControlName="email"
+            type="email"
+            id="input-label"
+            class="p-4 block w-full border border-gray-300 rounded-xl text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+          />
+
+          <!-- placeholder="{{ 'insert_your_email' | translate }}" -->
+        </div>
+
+        <div class="text-left">
+          <div class="flex items-center justify-between mb-2 text-gray-600">
+            <label for="input-label" class="block text-md">
+              {{ "password" | translate }}
+            </label>
+            <button class="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="size-6 fill-gray-500"
+              >
+                <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                <path
+                  fill-rule="evenodd"
+                  d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+
+              Show
+            </button>
+          </div>
+          <input
+            formControlName="password"
+            type="password"
+            id="input-label"
+            class="p-4 block w-full border border-gray-300 rounded-xl text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+          />
+
+          <!-- placeholder="{{ 'insert_your_password' | translate }}" -->
+        </div>
+
+        <div class="text-left">
+          <div class="flex items-center justify-between mb-2 text-gray-600">
+            <label for="input-label" class="block text-md">
+              {{ "retype_password" | translate }}
+            </label>
+            <button class="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="size-6 fill-gray-500"
+              >
+                <path
+                  d="M3.53 2.47a.75.75 0 0 0-1.06 1.06l18 18a.75.75 0 1 0 1.06-1.06l-18-18ZM22.676 12.553a11.249 11.249 0 0 1-2.631 4.31l-3.099-3.099a5.25 5.25 0 0 0-6.71-6.71L7.759 4.577a11.217 11.217 0 0 1 4.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113Z"
+                />
+                <path
+                  d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0 1 15.75 12ZM12.53 15.713l-4.243-4.244a3.75 3.75 0 0 0 4.244 4.243Z"
+                />
+                <path
+                  d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 0 0-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 0 1 6.75 12Z"
+                />
+              </svg>
+              Hide
+            </button>
+          </div>
+          <input
+            formControlName="password"
+            type="password"
+            id="input-label"
+            class="p-4 block w-full border border-gray-300 rounded-xl text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+          />
+
+          <!-- placeholder="{{ 'insert_your_password' | translate }}" -->
+        </div>
+      </form>
+
+      <button
+        type="button"
+        class="w-full leading-none mb-10 flex items-center justify-center py-5 px-3 gap-1 text-[22px] rounded-full border border-transparent bg-[#3A6A76] text-white hover:bg-blue-700 disabled:opacity-40 disabled:pointer-events-none"
+        disabled
+      >
+        {{ "continue" | translate }}
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          class="size-6 stroke-[3px] stroke-white"
         >
-          {{ "retype_password" | translate }}
-        </label>
-        <input
-          formControlName="password"
-          type="password"
-          id="input-label"
-          class="py-3 px-4 border-2 border-gray-700 block w-full rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-          placeholder="{{ 'insert_your_password' | translate }}"
-        />
-      </div>
-    </form>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m8.25 4.5 7.5 7.5-7.5 7.5"
+          />
+        </svg>
+      </button>
 
-    <button
-      type="button"
-      class="px-16 py-2 block ltr:ml-auto rtl:mr-auto mt-6 mb-4 text-center text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-    >
-      {{ "continue" | translate }}
-    </button>
+      <!-- <button -->
+      <!--   type="button" -->
+      <!--   class="px-16 py-2 block ltr:ml-auto rtl:mr-auto mt-6 mb-4 text-center text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" -->
+      <!-- > -->
+      <!--   {{ "continue" | translate }} -->
+      <!-- </button> -->
 
-    <p>
-      {{ "by_signing_up_you_agree_to_terms_of_use" | translate }}
-      <a routerLink="/terms-of-use" class="text-blue-500">{{
-        "terms_of_use" | translate
-      }}</a>
-    </p>
+      <p class="text-[#3A6A76]">
+        {{ "by_signing_up_you_agree_to_terms_of_use" | translate }}
+        <a routerLink="/terms-of-use" class="underline">{{
+          "terms_of_use" | translate
+        }}</a>
+      </p>
+    </div>
   </div>
 </section>
