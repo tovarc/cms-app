@@ -4,6 +4,7 @@
 
 body {
   font-family: Roboto;
+  @apply text-[#3A6A76];
 }
 
 .main-gradient {
@@ -38,4 +39,8 @@ body {
     #fafbfb 57.26%,
     #ffffff 122.21%
   );
+}
+
+.sidebar-gradient {
+  background: linear-gradient(180deg, #f0ecc9 -68.68%, #3a6a76 29.75%);
 }
