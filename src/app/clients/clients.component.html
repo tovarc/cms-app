@@ -1,203 +1,247 @@
-<section (click)="hideClientOptions(); $event.stopPropagation()">
-  <h1 class="mb-6 text-2xl">{{ "my_clients" | translate }}</h1>
-  <div class="flex items-center justify-between mb-6">
-    <button
-      type="button"
-      class="text-white mr-6 rtl:mr-0 rtl:ml-6 text-nowrap bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        class="size-4 me-2"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"
-          clip-rule="evenodd"
-        />
-      </svg>
-      {{ "add_client" | translate }}
-    </button>
+<section>
+  <h1 class="mb-6 text-[50px]">
+    {{ "my_clients" | translate }}
+  </h1>
 
-    <div class="relative w-full">
-      <div
-        class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+  <div class="w-full bg-[#EBF3F5] rounded-md p-8">
+    <div class="flex items-center justify-between mb-6">
+      <button
+        type="button"
+        class="text-white mr-6 rtl:mr-0 rtl:ml-6 text-nowrap bg-[#78AF9C] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2"
       >
         <svg
-          class="w-4 h-4 text-gray-500 dark:text-gray-400"
-          aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
-          viewBox="0 0 20 20"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-4 mr-2"
         >
           <path
-            stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
-            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+            d="M12 4.5v15m7.5-7.5h-15"
           />
         </svg>
+        {{ "add_client" | translate }}
+      </button>
+
+      <div class="relative w-full">
+        <div
+          class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+        >
+          <svg
+            class="w-4 h-4 dark:"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 20 20"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+            />
+          </svg>
+        </div>
+        <input
+          type="search"
+          class="block w-full px-5 py-2 ps-10 text-md border border-[#3A6A76] rounded-xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Search clients..."
+        />
       </div>
-      <input
-        #criteria
-        (keyup)="searchClients(criteria.value)"
-        type="search"
-        class="block w-full px-5 py-2.5 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="Search clients..."
-      />
     </div>
-  </div>
-
-  <div class="shadow-md sm:rounded-lg overflow-x-scroll sm:overflow-x-visible">
-    <table
-      class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
-    >
-      <thead
-        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
-      >
-        <tr>
-          <th class="px-6 py-3">
-            <div class="flex items-center space-x-2">
-              <span>{{ "name" | translate }}</span>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                class="size-4 stroke-blue-400"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"
-                />
-              </svg>
+    <table class="w-full border-separate border-spacing-y-6">
+      <thead>
+        <tr class="text-sm">
+          <th class="text-left font-medium">
+            <div class="flex items-center gap-1">
+              Name
+              <span class="">▼</span>
             </div>
           </th>
-
-          <th class="px-6 py-3">
-            <div class="flex items-center space-x-2">
-              <span>{{ "last_action" | translate }}</span>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-4"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5"
-                />
-              </svg>
+          <th class="text-left font-medium">
+            <div class="flex items-center gap-1">
+              Last Action
+              <span class="">▼</span>
             </div>
           </th>
-          <th class="px-6 py-3">
-            <div class="flex items-center space-x-2">
-              <span>{{ "activities_done" | translate }}</span>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-4"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5"
-                />
-              </svg>
+          <th class="text-left font-medium">
+            <div class="flex items-center gap-1">
+              Activities Done
+              <span class="">▼</span>
             </div>
           </th>
-          <th class="px-6 py-3">
-            <div class="flex items-center space-x-2">
-              <span>{{ "added" | translate }}</span>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="size-4"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5"
-                />
-              </svg>
+          <th class="text-left font-medium">
+            <div class="flex items-center gap-1">
+              added
+              <span class="">▼</span>
             </div>
           </th>
-
-          <th class="px-6 py-3"></th>
+          <th class="w-8"></th>
         </tr>
       </thead>
       <tbody>
-        @for (client of clientsCopy; track client) {
-          <tr
-            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-          >
-            <td class="px-6 py-4 w-72">
-              <div class="flex items-center">
-                <div
-                  class="size-10 rounded-full overflow-hidden mr-6 rtl:ml-6 rtl:mr-0"
-                >
-                  <img [src]="client.avatar" alt="" />
+        @for (user of users; track user) {
+          <tr class="group">
+            <td
+              class="bg-white p-2 rounded-l-xl border-y-[3px] border-l-[3px] border-[#3A6A76] group-hover:bg-gray-50"
+            >
+              <div class="flex items-center gap-3">
+                <div class="relative">
+                  @if (user.hasWarning) {
+                    <div class="absolute -top-8 -left-7 w-14">
+                      <img
+                        src="assets/warning.svg"
+                        alt=""
+                        class="w-full h-full"
+                      />
+                    </div>
+                  }
+
+                  <div
+                    class="rounded-full overflow-hidden border-[#F3966B]"
+                    [class.border-[3px]]="user.hasWarning"
+                  >
+                    <img
+                      src="https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg"
+                      [alt]="user.name"
+                      class="w-10 h-10"
+                    />
+                  </div>
                 </div>
-                <span class="font-bold">{{ client.name }}</span>
+                <span class="font-bold">{{ user.name }}</span>
               </div>
             </td>
-            <td class="px-6 py-4">
-              <p class="font-bold">{{ client.last_action }}</p>
-              <p>{{ client.action }}</p>
+            <td
+              class="bg-white p-2 border-y-[3px] border-[#3A6A76] group-hover:bg-gray-50"
+            >
+              <div class="font-bold">
+                {{ user.lastAction.time }}
+                @if (user.lastAction.label) {
+                  <span class="ml-1">({{ user.lastAction.label }})</span>
+                }
+              </div>
+              <div class="text-sm">
+                {{ user.lastAction.description }}
+              </div>
             </td>
-            <td class="px-6 py-4">{{ client.activities_done }}</td>
-
-            <td class="px-6 py-4">{{ client.added }}</td>
-
-            <td class="px-3 py-4">
-              <div class="relative flex">
+            <td
+              class="bg-white p-2 border-y-[3px] border-[#3A6A76] group-hover:bg-gray-50"
+            >
+              {{ user.activitiesDone }}
+            </td>
+            <td
+              class="bg-white p-2 border-y-[3px] border-[#3A6A76] group-hover:bg-gray-50"
+            >
+              {{ user.added }}
+            </td>
+            <td
+              class="bg-white p-2 rounded-r-xl border-y-[3px] border-r-[3px] border-[#3A6A76] group-hover:bg-gray-50"
+            >
+              <div class="relative flex items-center">
                 <button
-                  (click)="$event.stopPropagation(); showClientOptions(client)"
-                  class="ml-auto rtl:mr-auto rtl:ml-0"
+                  (click)="toggleDropdown(user.id)"
+                  class="rounded-full hover:bg-gray-100"
                 >
                   <svg
-                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5 h-5"
                     viewBox="0 0 24 24"
-                    fill="currentColor"
-                    class="size-8"
+                    fill="none"
+                    stroke="currentColor"
                   >
                     <path
-                      fill-rule="evenodd"
-                      d="M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z"
-                      clip-rule="evenodd"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
                     />
                   </svg>
                 </button>
-
-                @if (client.expanded) {
+                @if (activeDropdown === user.id) {
                   <div
-                    class="absolute -top-2 right-[1.8rem] rtl:-right-[6.5rem] z-50 bg-white rounded-lg shadow-md border dark:bg-gray-700 dark:divide-gray-600"
+                    class="absolute right-0 mt-1 bg-white shadow-lg border-[3px] border-[#3A6A76] rounded-xl py-2 w-40 z-10"
                   >
-                    <ul class="py-2 text-gray-700 dark:text-gray-200">
-                      @for (option of clientOptions; track option) {
-                        <li
-                          class="cursor-pointer px-7 py-3 text-nowrap hover:bg-gray-100"
-                        >
-                          {{ option | translate }}
-                        </li>
-                      }
-                    </ul>
+                    <button
+                      class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        />
+                      </svg>
+                      View Client
+                    </button>
+                    <button
+                      class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                        />
+                      </svg>
+                      Edit Profile
+                    </button>
+                    <button
+                      class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                        />
+                      </svg>
+                      Duplicate
+                    </button>
+                    <button
+                      class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                        />
+                      </svg>
+                      Delete
+                    </button>
                   </div>
                 }
               </div>

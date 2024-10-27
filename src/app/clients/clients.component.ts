@@ -1,129 +1,105 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
+interface LastAction {
+  time: string;
+  label?: string;
+  description: string;
+}
+
+interface User {
+  id: number;
+  name: string;
+  avatar: string;
+  lastAction: LastAction;
+  activitiesDone: number | string;
+  added: string;
+  hasWarning?: boolean;
+}
+
 @Component({
   selector: 'app-clients',
   standalone: true,
   imports: [TranslateModule],
   templateUrl: './clients.component.html',
-  styleUrl: './clients.component.scss',
 })
-export class ClientsComponent implements OnInit {
-  public clients: any[] = [
+export class ClientsComponent {
+  activeDropdown: number | null = null;
+
+  users: User[] = [
     {
-      name: 'Alice Johnson',
-      avatar: 'https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg',
-      activities_done: 12,
-      added: '2 days ago',
-      last_action: '30 mins ago',
-      action: 'Uploaded a profile picture',
+      id: 12,
+      name: 'Marco Smith',
+      avatar: '/api/placeholder/40/40',
+      lastAction: {
+        time: '15 mins ago',
+        label: 'new',
+        description: 'Started The Path of the Octopus',
+      },
+      activitiesDone: 3,
+      added: '3 Days ago',
     },
     {
-      name: 'Bob Smith',
-      avatar: 'https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg',
-      activities_done: 8,
-      added: '5 days ago',
-      last_action: '10 mins ago',
-      action: 'Joined a new group',
+      id: 22,
+      name: 'Francine Schneider',
+      avatar: '/api/placeholder/40/40',
+      lastAction: {
+        time: 'yesterday',
+        description: 'Logged in for the first time',
+      },
+      activitiesDone: 'None',
+      added: 'Yesterday',
+      hasWarning: true,
     },
     {
-      name: 'Carol Davis',
-      avatar: 'https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg',
-      activities_done: 15,
-      added: '1 week ago',
-      last_action: '1 hour ago',
-      action: 'Commented on a post',
+      id: 33,
+      name: 'Henry Boyce',
+      avatar: '/api/placeholder/40/40',
+      lastAction: {
+        time: '12 May 2024',
+        description: 'Completed MDMA 101',
+      },
+      activitiesDone: 5,
+      added: '24 Apr 2024',
     },
     {
-      name: 'David Brown',
-      avatar: 'https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg',
-      activities_done: 5,
-      added: '3 days ago',
-      last_action: '2 hours ago',
-      action: 'Completed a quiz',
+      id: 1,
+      name: 'Marco Smith',
+      avatar: '/api/placeholder/40/40',
+      lastAction: {
+        time: '15 mins ago',
+        label: 'new',
+        description: 'Started The Path of the Octopus',
+      },
+      activitiesDone: 3,
+      added: '3 Days ago',
     },
     {
-      name: 'Eve Wilson',
-      avatar: 'https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg',
-      activities_done: 9,
-      added: '4 days ago',
-      last_action: '45 mins ago',
-      action: 'Shared a link',
+      id: 2,
+      name: 'Francine Schneider',
+      avatar: '/api/placeholder/40/40',
+      lastAction: {
+        time: 'yesterday',
+        description: 'Logged in for the first time',
+      },
+      activitiesDone: 'None',
+      added: 'Yesterday',
+      hasWarning: true,
     },
     {
-      name: 'Frank Moore',
-      avatar: 'https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg',
-      activities_done: 20,
-      added: '6 days ago',
-      last_action: '5 mins ago',
-      action: 'Started a new project',
-    },
-    {
-      name: 'Grace Taylor',
-      avatar: 'https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg',
-      activities_done: 7,
-      added: '2 days ago',
-      last_action: '3 hours ago',
-      action: 'Updated profile information',
-    },
-    {
-      name: 'Henry Anderson',
-      avatar: 'https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg',
-      activities_done: 11,
-      added: '1 week ago',
-      last_action: '20 mins ago',
-      action: 'Attended a virtual event',
-    },
-    {
-      name: 'Isabella Martinez',
-      avatar: 'https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg',
-      activities_done: 14,
-      added: '4 days ago',
-      last_action: '1 hour ago',
-      action: 'Sent a message',
-    },
-    {
-      name: 'Jack Lee',
-      avatar: 'https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg',
-      activities_done: 6,
-      added: '3 days ago',
-      last_action: '10 mins ago',
-      action: 'Created a new post',
+      id: 3,
+      name: 'Henry Boyce',
+      avatar: '/api/placeholder/40/40',
+      lastAction: {
+        time: '12 May 2024',
+        description: 'Completed MDMA 101',
+      },
+      activitiesDone: 5,
+      added: '24 Apr 2024',
     },
   ];
 
-  public clientsCopy: any[] = [];
-
-  ngOnInit(): void {
-    this.clientsCopy = this.clients;
-  }
-
-  public searchClients(criteria: string) {
-    this.clientsCopy = this.clients.filter((user: any) =>
-      user.name.toLowerCase().includes(criteria.toLowerCase()),
-    );
-  }
-
-  public clientOptions: string[] = [
-    'view_client',
-    'assign_voyage',
-    'edit_profile',
-    'duplicate',
-    'delete',
-  ];
-
-  public hideClientOptions(): void {
-    for (const client of this.clients) {
-      client.expanded = false;
-    }
-  }
-
-  public showClientOptions(current: any): void {
-    for (const client of this.clients) {
-      if (client != current) {
-        client.expanded = false;
-      }
-    }
-    current.expanded = !current.expanded;
+  toggleDropdown(userId: number): void {
+    this.activeDropdown = this.activeDropdown === userId ? null : userId;
   }
 }
