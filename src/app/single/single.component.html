@@ -1,0 +1,17 @@
+@if (currentScreen === "start") {
+  <app-start
+    [screen]="activity.screens.start"
+    (navigate)="handleNavigate($event)"
+  />
+}
+
+@if (currentScreen === "pages") {
+  <app-pages
+    [screen]="activity.screens.pages[currentPage]"
+    (navigate)="handleNavigate($event)"
+  />
+}
+
+@if (currentScreen === "end") {
+  <app-finish [screen]="activity.screens.end" />
+}

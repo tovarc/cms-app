@@ -1,0 +1,49 @@
+<section class="min-h-screen bg-[#E5E7D5] flex flex-col p-16">
+  <div class="size-32 mx-auto mb-8">
+    <img src="assets/logo.png" alt="" class="h-full w-full object-contain" />
+  </div>
+
+  <div class="text-center text-xl mb-11">
+    <p>{{ screen()?.content?.text }}</p>
+  </div>
+
+  <div class="text-center">
+    <h1 class="text-xl font-normal mb-2">{{ screen()?.moduleTitle }}</h1>
+    <h2 class="text-2xl font-bold">{{ screen()?.activityTitle }}</h2>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      class="size-36 fill-green-400/50 inline my-4"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+        clip-rule="evenodd"
+      />
+    </svg>
+  </div>
+
+  <div class="text-center">
+    <button
+      class="mb-2 bg-[#3A6A76] text-white font-bold text-lg px-8 py-3 rounded-lg w-full"
+    >
+      Review Answers
+    </button>
+
+    <button
+      class="bg-[#3A6A76] text-white font-bold text-lg px-8 py-3 rounded-lg w-full"
+    >
+      Download Results
+    </button>
+  </div>
+
+  <div class="mt-14 text-center">
+    <button
+      routerLink="/activities"
+      class="mb-2 border-4 border-[#3A6A76] font-bold text-lg px-8 py-3 rounded-lg w-full"
+    >
+      My Voyage
+    </button>
+  </div>
+</section>

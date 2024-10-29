@@ -30,6 +30,32 @@ export const routes: Routes = [
   },
 
   {
+    path: 'activities',
+    loadComponent: () =>
+      import('./activities/activities.component').then(
+        (m) => m.ActivitiesComponent,
+      ),
+  },
+
+  {
+    path: 'activity/:id',
+    loadComponent: () =>
+      import('./single/single.component').then((m) => m.SingleComponent),
+  },
+
+  {
+    path: 'start',
+    loadComponent: () =>
+      import('./start/start.component').then((m) => m.StartComponent),
+  },
+
+  {
+    path: 'finish',
+    loadComponent: () =>
+      import('./finish/finish.component').then((m) => m.FinishComponent),
+  },
+
+  {
     path: 'dashboard',
     loadComponent: () =>
       import('./dashboard/dashboard.component').then(

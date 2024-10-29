@@ -1,0 +1,133 @@
+<section class="min-h-screen flex flex-col">
+  <div class="bg-[#98CBB9] border-b-2 border-[#3A6A76]">
+    <div
+      class="h-[85px] flex items-center justify-center md:w-[956px] md:mx-auto"
+    >
+      <!-- <div class="size-[82px] -mt-2"> -->
+      <!--   <img src="assets/logo.png" alt="" class="h-full w-full object-cover" /> -->
+      <!-- </div> -->
+
+      <div class="text-center px-6">
+        <h1 class="text-md leading-none mb-1">{{ screen()?.moduleTitle }}</h1>
+        <h2 class="text-xl font-bold leading-none">
+          {{ screen()?.activityTitle }}
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white p-8 items-center text-black">
+    <h1 class="text-3xl font-bold mb-6">{{ screen()?.content?.title }}</h1>
+
+    @if (screen()?.content?.text) {
+      <p class="mb-3">
+        {{ screen()?.content?.text }}
+      </p>
+    }
+
+    @if (screen()?.content?.bulletPoints) {
+      <ol class="flex flex-col space-y-2">
+        @for (
+          bullet of screen()?.content?.bulletPoints;
+          track bullet;
+          let idx = $index
+        ) {
+          <li>{{ idx + 1 }}. {{ bullet }}</li>
+        }
+      </ol>
+    }
+
+    @if (screen()?.content?.questions) {
+      @for (question of screen()?.content?.questions; track question) {
+        @if (question.type == "scale") {
+          <p class="mb-8">
+            {{ question.statement }}
+          </p>
+
+          <ul>
+            @for (option of question.options; track option; let idx = $index) {
+              <li class="flex items-center space-x-3 mb-2">
+                <input
+                  type="radio"
+                  [name]="question.statement"
+                  [id]="question.statement + idx"
+                  [value]="option.value"
+                />
+
+                <label [for]="question.statement + idx">{{
+                  option.label
+                }}</label>
+              </li>
+            }
+          </ul>
+        } @else {
+          <p class="mb-8">
+            {{ question.prompt }}
+          </p>
+
+          <textarea
+            name=""
+            id=""
+            class="border-2 border-black w-full h-32 rounded-lg p-2 px-4"
+            placeholder="your answer..."
+          ></textarea>
+        }
+      }
+    }
+  </div>
+
+  @if (screen()?.buttons?.length) {
+    <div
+      class="absolute bottom-0 left-0 right-0 bg-[#E5E7D5] border-t-2 border-[#3A6A76]"
+    >
+      <div
+        class="grid grid-cols-3 h-[85px] items-center p-4 md:w-[956px] md:mx-auto"
+      >
+        <button
+          (click)="onNavigate(screen()?.buttons?.[0]?.action)"
+          class="flex items-center justify-start bg-[#3A6A76] text-white font-bold text-lg px-4 py-3 rounded-lg w-full"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="size-6 mr-3"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          {{ screen()?.buttons?.[0]?.text }}
+        </button>
+
+        <div class="text-center">
+          <span class="text-2xl font-bold text-black">
+            {{ screen()?.pageInfo?.current }} / {{ screen()?.pageInfo?.total }}
+          </span>
+        </div>
+
+        <button
+          (click)="onNavigate(screen()?.buttons?.[1]?.action)"
+          class="flex items-center justify-end bg-[#3A6A76] text-white font-bold text-lg px-4 py-3 rounded-lg w-full"
+        >
+          {{ screen()?.buttons?.[1]?.text }}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="size-6 ml-3"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  }
+</section>
