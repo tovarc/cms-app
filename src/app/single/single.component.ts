@@ -6,10 +6,9 @@ import { PagesComponent } from '../pages/pages.component';
 import { FinishComponent } from '../finish/finish.component';
 
 @Component({
-  selector: 'app-single',
-  standalone: true,
-  imports: [StartComponent, PagesComponent, FinishComponent],
-  templateUrl: './single.component.html',
+    selector: 'app-single',
+    imports: [StartComponent, PagesComponent, FinishComponent],
+    templateUrl: './single.component.html'
 })
 export class SingleComponent implements OnInit {
   private route = inject(ActivatedRoute);

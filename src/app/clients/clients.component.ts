@@ -19,7 +19,6 @@ interface User {
 
 @Component({
   selector: 'app-clients',
-  standalone: true,
   imports: [TranslateModule],
   templateUrl: './clients.component.html',
 })

@@ -3,10 +3,9 @@ import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule, TranslateModule],
-  templateUrl: './home.component.html',
+    selector: 'app-home',
+    imports: [CommonModule, TranslateModule],
+    templateUrl: './home.component.html'
 })
 export class HomeComponent {
   public updates: any[] = [
