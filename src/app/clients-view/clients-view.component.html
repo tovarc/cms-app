@@ -1,0 +1,167 @@
+<section>
+  <div class="flex items-start">
+    <nav class="w-28 -mr-1.5 mt-40">
+      <ul class="space-y-4">
+        <li
+          class="relative bg-[#EBF3F5]/70 border-2 border-[#3A6A76] rounded-lg px-6 py-2 font-bold"
+        >
+          History
+
+          <span
+            class="absolute -top-4 -left-4 size-8 flex items-center justify-center rounded-full border-[3px] text-lg leading-0 border-[#3A6A76] text-white font-bold bg-[#74AB9A]"
+          >
+            2
+          </span>
+        </li>
+        <li
+          class="bg-[#3A6A76]/40 border-2 border-[#3A6A76] rounded-lg font-bold"
+        >
+          <a
+            routerLink="/dashboard/clients-timeline"
+            class="block w-full px-6 py-2"
+          >
+            Timeline
+          </a>
+        </li>
+        <li
+          class="bg-[#3A6A76]/40 border-2 border-[#3A6A76] rounded-lg px-6 py-2 font-bold"
+        >
+          Profile
+        </li>
+      </ul>
+    </nav>
+
+    <div class="w-full z-10">
+      <h1 class="mb-6 text-[50px]">Shmil Avadon</h1>
+      <div class="w-full bg-[#EBF3F5] rounded-md p-8">
+        <div class="flex items-center justify-between mb-4">
+          <label for="show" class="flex items-center gap-4">
+            <input type="checkbox" name="" id="show" class="accent-[#3A6A76]" />
+            Show important activities only
+          </label>
+
+          <button
+            type="button"
+            class="ml-auto rtl:mr-auto rtl:ml-0 bg-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-xl text-sm px-5 py-2 border-[#3A6A76] border-2 text-center inline-flex items-center me-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="size-6 stroke-2 me-2"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            {{ "mark_all_as_read" | translate }}
+          </button>
+        </div>
+        <div class="rounded-md px-8 pt-8 pb-60 green-gradient space-y-4">
+          @for (item of history; track item) {
+            <div class="flex items-center gap-4">
+              <p class="text-nowrap font-medium">15 May 2024, 10:06</p>
+
+              <div
+                class="relative flex items-center w-full bg-white border-2 border-[#3A6A76] rounded-[10px]"
+                [ngClass]="{
+                  'border-[#FF675F]': item.flag,
+                }"
+              >
+                @if (item.flag) {
+                  <div class="absolute z-10 -top-3 -left-6 w-14">
+                    <img
+                      src="assets/warning.svg"
+                      alt=""
+                      class="w-full h-full"
+                    />
+                  </div>
+                  <div class="absolute inset-0 bg-[#FF675F]/20"></div>
+                }
+                <div
+                  class="mr-8 rounded-lg overflow-hidden"
+                  [style.backgroundColor]="item.color"
+                >
+                  <img [src]="item.image" alt="" class="size-16" />
+                </div>
+                <p class="mr-4">{{ item.status }}</p>
+                <p class="italic font-medium">{{ item.name }}</p>
+
+                <div class="relative flex items-center ml-auto mr-4">
+                  <button
+                    (click)="toggleDropdown(item.id)"
+                    class="rounded-full hover:bg-gray-100"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                      />
+                    </svg>
+                  </button>
+                  @if (activeDropdown === item.id) {
+                    <div
+                      class="absolute right-5 mt-1 bg-white shadow-lg border-[3px] border-[#3A6A76] rounded-xl py-2 text-nowrap z-10"
+                    >
+                      <button
+                        class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                          />
+                        </svg>
+                        Preview
+                      </button>
+                      <button
+                        class="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 flex items-center gap-2"
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                          />
+                        </svg>
+                        Download Results
+                      </button>
+                    </div>
+                  }
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

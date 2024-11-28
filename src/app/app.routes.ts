@@ -81,6 +81,14 @@ export const routes: Routes = [
             (m) => m.ClientViewComponent,
           ),
       },
+
+      {
+        path: 'clients-timeline',
+        loadComponent: () =>
+          import('./clients-timeline/clients-timeline.component').then(
+            (m) => m.ClientTimelineComponent,
+          ),
+      },
     ],
   },
 ];

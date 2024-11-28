@@ -44,3 +44,21 @@ body {
 .sidebar-gradient {
   background: linear-gradient(180deg, #f0ecc9 -68.68%, #3a6a76 29.75%);
 }
+
+.green-gradient {
+  background: linear-gradient(
+    33deg,
+    rgba(58, 106, 118, 0.3) 0%,
+    rgba(105, 158, 147, 0.3) 53.79%,
+    rgba(116, 171, 154, 0.3) 79.74%,
+    rgba(120, 175, 156, 0.3) 92.03%
+  );
+}
+
+.link-active {
+  @apply bg-[#A7D6B2] text-[#3A6A76] bg-opacity-100;
+}
+
+.svg-link-active {
+  @apply fill-[#3A6A76];
+}

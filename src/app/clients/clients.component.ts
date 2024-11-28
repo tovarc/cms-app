@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 interface LastAction {
@@ -19,7 +20,7 @@ interface User {
 
 @Component({
   selector: 'app-clients',
-  imports: [TranslateModule],
+  imports: [TranslateModule, RouterModule],
   templateUrl: './clients.component.html',
 })
 export class ClientsComponent {
