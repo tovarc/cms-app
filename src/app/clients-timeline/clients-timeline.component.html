@@ -70,7 +70,7 @@
               <div
                 class="bg-[#779BA0] self-stretch flex flex-col items-center justify-center text-white text-center text-nowrap px-6"
                 [ngClass]="{
-                  'bg-[#505050]': !item.open,
+                  'bg-gray-600': !item.open,
                 }"
               >
                 <p>Mon</p>
@@ -79,7 +79,7 @@
               <div
                 class="w-full p-1 space-y-2 bg-[#698F96]"
                 [ngClass]="{
-                  'bg-[#606060]': !item.open,
+                  'bg-gray-500': !item.open,
                 }"
               >
                 @for (timeline of item.timeline; track timeline) {
@@ -89,15 +89,16 @@
                     </p>
 
                     <div
-                      class="relative flex items-center w-full bg-white border-[#3A6A76] rounded-[10px]"
+                      class="relative flex items-center w-full border-[#3A6A76] rounded-[10px]"
                       [ngClass]="{
-                        'bg-[#AFAFAF]': !item.open,
+                        'bg-gray-300': !item.open,
+                        'bg-white': item.open,
                       }"
                     >
                       <div
                         class="mr-8 w-36 bg-[#F3966B] h-14 rounded-l-lg overflow-hidden"
                         [ngClass]="{
-                          'bg-[#858585]': !item.open,
+                          'bg-gray-400': !item.open,
                         }"
                       ></div>
 
